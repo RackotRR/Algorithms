@@ -2,7 +2,8 @@
 #include <span>
 
 template<typename T>
-void merge(T* arr, size_t left, size_t center, size_t right, T* buffer) {
+void merge(T* arr, size_t left, size_t right, T* buffer) {
+    size_t center = left + (right - left) / 2;
     size_t leftSize = center - left;
     size_t rightSize = right - center;
 
@@ -57,15 +58,13 @@ void mergeSort(T* arr, size_t left, size_t right, T* buffer) {
     size_t center = left + (right - left) / 2;
     mergeSort(arr, left, center, buffer);
     mergeSort(arr, center, right, buffer);
-    merge(arr, left, center, right, buffer);
+    merge(arr, left, right, buffer);
 }
 
 // neumann sort
 template<typename T>
 void mergeSort(std::span<T> arr) {
     auto buffer = new T[arr.size()];
-
     mergeSort(arr.data(), 0, arr.size(), buffer);
-
     delete[] buffer;
 }
