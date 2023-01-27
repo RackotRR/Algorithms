@@ -56,5 +56,8 @@
     <ClInclude Include="LinearSearch.h">
       <Filter>Header Files\Search</Filter>
     </ClInclude>
+    <ClInclude Include="MergeSort.h">
+      <Filter>Header Files\Sort</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

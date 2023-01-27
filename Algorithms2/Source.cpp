@@ -15,6 +15,7 @@
 #include "SelectionSort.h"
 #include "InsertionSort.h"
 #include "BubbleSort.h"
+#include "MergeSort.h"
 
 #define testSort(N) testSortFunction(N, #N)
 #define testSearch(N) testSearchFunction(N, #N)
@@ -46,7 +47,7 @@ void testSearchFunction(searchFunc_t searchFunc, std::string name) {
 
 void testSortFunction(sortFunc_t sortFunc, std::string name) {
     std::vector<int> vec1, vec2;
-    int n = 10;
+    int n = 1000;
     for (int i = 0; i < n; ++i) {
         int value = rand() % 100;
         vec1.push_back(value);
@@ -60,7 +61,7 @@ void testSortFunction(sortFunc_t sortFunc, std::string name) {
     for (int i = 0; i < n; ++i) {
         if (vec1[i] != vec2[i]) {
             std::cout << "error" << std::endl;
-            return;
+            break;
         }
     }
     std::cout << "success" << std::endl;
@@ -71,6 +72,7 @@ int main() {
     testSort(insertionSort);
     testSort(bubbleSort);
     testSort(selectionSort);
+    testSort(mergeSort);
 
     testSearch(binarySearch);
     testSearch(exponentialSearch);
