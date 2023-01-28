@@ -8,19 +8,15 @@ size_t partition(T* arr, size_t n) {
 	size_t j = 0;
 
 	while (true) {
-		while (i != 1 && arr[--i] > pivot);
-		while (j != n - 1 && arr[++j] < pivot);
+		while (arr[--i] > pivot);
+		while (arr[++j] < pivot);
 		if (i <= j) {
 			break;
 		}
-		if (arr[i] < arr[j]) {
-			std::swap(arr[i], arr[j]);
-		}
+		std::swap(arr[i], arr[j]);
 	}
 
-	if (arr[i] < arr[0]) {
-		std::swap(arr[i], arr[0]);
-	}
+	std::swap(arr[i], arr[0]);
 	return i;
 }
 
@@ -35,7 +31,5 @@ void quickSort(T* arr, size_t n) {
 
 template<typename T>
 void quickSort(std::span<T> arr) {
-	if (arr.size() > 1) {
-		quickSort(arr.data(), arr.size());
-	}
+	quickSort(arr.data(), arr.size());
 }
