@@ -16,6 +16,7 @@
 #include "InsertionSort.h"
 #include "BubbleSort.h"
 #include "MergeSort.h"
+#include "QuickSort.h"
 
 #define testSort(N) testSortFunction(N, #N)
 #define testSearch(N) testSearchFunction(N, #N)
@@ -61,10 +62,10 @@ void testSortFunction(sortFunc_t sortFunc, std::string name) {
     for (int i = 0; i < n; ++i) {
         if (vec1[i] != vec2[i]) {
             std::cout << "error" << std::endl;
-            break;
+            return;
         }
     }
-    std::cout << "success" << std::endl;
+    std::cout << "success" << std::endl; 
 }
 
 
@@ -73,6 +74,7 @@ int main() {
     testSort(bubbleSort);
     testSort(selectionSort);
     testSort(mergeSort);
+    testSort(quickSort);
 
     testSearch(binarySearch);
     testSearch(exponentialSearch);

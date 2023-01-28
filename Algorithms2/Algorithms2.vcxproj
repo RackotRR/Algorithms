@@ -155,6 +155,7 @@
     <ClInclude Include="InterpolationSearch.h" />
     <ClInclude Include="LinearSearch.h" />
     <ClInclude Include="MergeSort.h" />
+    <ClInclude Include="QuickSort.h" />
     <ClInclude Include="SelectionSort.h" />
     <ClInclude Include="TernarySearch.h" />
   </ItemGroup>
