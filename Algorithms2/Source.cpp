@@ -17,6 +17,7 @@
 #include "BubbleSort.h"
 #include "MergeSort.h"
 #include "QuickSort.h"
+#include "QuickSort3Way.h"
 
 #define testSort(N) testSortFunction(N, #N)
 #define testSearch(N) testSearchFunction(N, #N)
@@ -75,6 +76,7 @@ int main() {
     testSort(selectionSort);
     testSort(mergeSort);
     testSort(quickSort);
+    testSort(quickSort3Way);
 
     testSearch(binarySearch);
     testSearch(exponentialSearch);
