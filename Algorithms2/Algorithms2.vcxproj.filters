@@ -68,5 +68,8 @@
     <ClInclude Include="ShellSort.h">
       <Filter>Header Files\Sort</Filter>
     </ClInclude>
+    <ClInclude Include="CountingSort.h">
+      <Filter>Header Files\Sort</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

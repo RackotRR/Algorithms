@@ -148,6 +148,7 @@
   <ItemGroup>
     <ClInclude Include="BinarySearch.h" />
     <ClInclude Include="BubbleSort.h" />
+    <ClInclude Include="CountingSort.h" />
     <ClInclude Include="ExponentialSearch.h" />
     <ClInclude Include="FibonacciSearch.h" />
     <ClInclude Include="InsertionSort.h" />
