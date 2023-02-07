@@ -20,6 +20,7 @@
 #include "QuickSort3Way.h"
 #include "ShellSort.h"
 #include "CountingSort.h"
+#include "RadixSort.h"
 
 #define testSort(N) testSortFunction(N, #N)
 #define testSearch(N) testSearchFunction(N, #N)
@@ -81,6 +82,7 @@ int main() {
     testSort(quickSort3Way);
     testSort(shellSort);
     testSort(countingSort);
+    testSort(radixSort);
 
     testSearch(binarySearch);
     testSearch(exponentialSearch);
