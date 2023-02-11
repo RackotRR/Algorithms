@@ -74,5 +74,8 @@
     <ClInclude Include="RadixSort.h">
       <Filter>Header Files\Sort</Filter>
     </ClInclude>
+    <ClInclude Include="BucketSort.h">
+      <Filter>Header Files\Sort</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

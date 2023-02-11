@@ -21,12 +21,13 @@
 #include "ShellSort.h"
 #include "CountingSort.h"
 #include "RadixSort.h"
+#include "BucketSort.h"
 
 #define testSort(N) testSortFunction(N, #N)
 #define testSearch(N) testSearchFunction(N, #N)
 
 using searchFunc_t = int* (*)(const int& x, std::span<int> arr);
-using sortFunc_t = void (*)(std::span<int> arr);
+using sortFunc_t = void (*)(std::span<unsigned> arr);
 
 void testSearchFunction(searchFunc_t searchFunc, std::string name) {
     std::vector<int> vec;
@@ -51,15 +52,15 @@ void testSearchFunction(searchFunc_t searchFunc, std::string name) {
 }
 
 void testSortFunction(sortFunc_t sortFunc, std::string name) {
-    std::vector<int> vec1, vec2;
+    std::vector<unsigned> vec1, vec2;
     int n = 1000;
     for (int i = 0; i < n; ++i) {
-        int value = rand() % 100;
+        unsigned value = rand() % 100;
         vec1.push_back(value);
         vec2.push_back(value);
     }
 
-    sortFunc(std::span<int>(vec1));
+    sortFunc(std::span<unsigned>(vec1));
     std::sort(vec2.begin(), vec2.end());
 
     std::cout << name << ": ";
@@ -83,6 +84,7 @@ int main() {
     testSort(shellSort);
     testSort(countingSort);
     testSort(radixSort);
+    testSort(bucketSort);
 
     testSearch(binarySearch);
     testSearch(exponentialSearch);

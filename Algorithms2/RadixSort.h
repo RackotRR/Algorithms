@@ -4,8 +4,10 @@
 #include <array>
 #include <algorithm>
 #include <limits>
+#include <concepts>
 
 template<typename T, size_t base>
+    requires std::unsigned_integral<T>
 void countingSortSubroutine(std::span<T> arr, std::vector<T>& buffer, size_t place) {
     std::array<size_t, base> counts{ 0 };
 
@@ -26,10 +28,11 @@ void countingSortSubroutine(std::span<T> arr, std::vector<T>& buffer, size_t pla
 }
 
 template<typename T>
+    requires std::unsigned_integral<T>
 void radixSort(std::span<T> arr) {
     static_assert(std::numeric_limits<T>::is_integer);
     if (arr.empty()) return;
-
+    
     std::vector<T> buffer(arr.size());
 
     constexpr size_t base = 256;
