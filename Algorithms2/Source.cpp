@@ -22,6 +22,7 @@
 #include "CountingSort.h"
 #include "RadixSort.h"
 #include "BucketSort.h"
+#include "BitonicSort.h"
 
 #define testSort(N) testSortFunction(N, #N)
 #define testSearch(N) testSearchFunction(N, #N)
@@ -53,7 +54,7 @@ void testSearchFunction(searchFunc_t searchFunc, std::string name) {
 
 void testSortFunction(sortFunc_t sortFunc, std::string name) {
     std::vector<unsigned> vec1, vec2;
-    int n = 1000;
+    int n = 1024;
     for (int i = 0; i < n; ++i) {
         unsigned value = rand() % 100;
         vec1.push_back(value);
@@ -85,6 +86,7 @@ int main() {
     testSort(countingSort);
     testSort(radixSort);
     testSort(bucketSort);
+    testSort(bitonicSort);
 
     testSearch(binarySearch);
     testSearch(exponentialSearch);
