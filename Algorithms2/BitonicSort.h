@@ -18,11 +18,11 @@ template<typename T>
 void bitonicSort(std::span<T> arr) {
     size_t passes = countPasses(arr.size());
     for (size_t pass = 0; pass < passes; ++pass) {
-        for (size_t step_size = 1ull << (pass + 1ull); step_size != 0; step_size /= 2) {
+        size_t max_step_size = 1ull << pass;
+        for (size_t step_size = max_step_size; step_size != 0; step_size /= 2) {
 
 #pragma omp parallel for
             for (long long i = 0; i < arr.size() - step_size; ++i) {
-                size_t max_step_size = 1ull << (pass + 1ull);
                 if (i % (step_size * 2) < step_size) {
                     bool asc = (i / (2 * max_step_size)) % 2 == 0;
                     if (asc && arr[i] > arr[i + step_size]) {
@@ -43,14 +43,14 @@ void bitonicSort(std::span<T> arr) {
 //    size_t i = get_global_id(0);
 //
 //    for (size_t pass = 0; pass < passes; ++pass) {
-//        for (size_t step_size = 1ull << (pass + 1ull); step_size != 0; step_size /= 2) {
+//        size_t max_step_size = 1ull << pass;
+//        for (size_t step_size = max_step_size; step_size != 0; step_size /= 2) {
 //
 //            barrier(CLK_GLOBAL_MEM_FENCE);
 //
 //            if (i >= n - step_size) continue;
 //            if (i % (step_size * 2) >= step_size) continue;
 //
-//            size_t max_step_size = 1ull << (pass + 1ull);
 //            bool asc = (i / (2 * max_step_size)) % 2 == 0;
 //            if (asc && data[i] > data[i + step_size]) {
 //                int temp = data[i];
