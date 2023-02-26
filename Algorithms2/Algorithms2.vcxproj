@@ -154,6 +154,7 @@
     <ClInclude Include="CountingSort.h" />
     <ClInclude Include="ExponentialSearch.h" />
     <ClInclude Include="FibonacciSearch.h" />
+    <ClInclude Include="HeapSort.h" />
     <ClInclude Include="InsertionSort.h" />
     <ClInclude Include="JumpSearch.h" />
     <ClInclude Include="InterpolationSearch.h" />

@@ -23,6 +23,7 @@
 #include "RadixSort.h"
 #include "BucketSort.h"
 #include "BitonicSort.h"
+#include "HeapSort.h"
 
 #define testSort(N) testSortFunction(N, #N)
 #define testSearch(N) testSearchFunction(N, #N)
@@ -76,6 +77,7 @@ void testSortFunction(sortFunc_t sortFunc, std::string name) {
 
 
 int main() {
+    srand(time(NULL));
     testSort(insertionSort);
     testSort(bubbleSort);
     testSort(selectionSort);
@@ -87,6 +89,7 @@ int main() {
     testSort(radixSort);
     testSort(bucketSort);
     testSort(bitonicSort);
+    testSort(heapSort);
 
     testSearch(binarySearch);
     testSearch(exponentialSearch);
